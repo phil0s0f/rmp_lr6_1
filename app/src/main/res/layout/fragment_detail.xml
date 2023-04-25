@@ -6,8 +6,30 @@
     <TextView
         android:id="@+id/detailsText"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Данные"
+        android:text="Выберите действие"
         android:textSize="25sp" />
+
+    <EditText
+        android:id="@+id/inputMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="20"
+        android:hint="Введите текст"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/buttonExecute"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Выполнить" />
+
+    <TextView
+        android:id="@+id/outputMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="25sp" />
+
 </LinearLayout>

@@ -8,7 +8,7 @@ import android.os.Bundle;
 public class DetailActivity extends AppCompatActivity {
 
     public static final String TEXT_KEY = "TEXT";
-    String text = "Данные";
+    String text = "Выберите действие";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
