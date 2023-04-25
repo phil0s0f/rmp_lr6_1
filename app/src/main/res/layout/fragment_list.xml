@@ -3,20 +3,37 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/showStat"
+    <TextView
+        android:id="@+id/emloyeKey"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Вывести статистику" />
+        android:text="Сотрудник 1" />
+
+    <EditText
+        android:id="@+id/fioEmpoye"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="ФИО сотрудника"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/postEmploye"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Должность сотрудника"
+        android:inputType="textPersonName" />
 
     <Button
-        android:id="@+id/countWord"
+        android:id="@+id/buttonSave"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Посчитать слова" />
+        android:text="Сохранить" />
+
     <Button
-        android:id="@+id/removeFirstWord"
+        android:id="@+id/buttonSelectEmploye"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Удалить первое слово" />
+        android:text="Выбор сотрудника" />
 </LinearLayout>

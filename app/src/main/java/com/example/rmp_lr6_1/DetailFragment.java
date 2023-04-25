@@ -1,5 +1,6 @@
 package com.example.rmp_lr6_1;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -20,7 +21,19 @@ public class DetailFragment extends Fragment {
     public DetailFragment() {
         // Required empty public constructor
     }
-
+    private OnFragmentSendDataListener sendDataListener;
+    interface OnFragmentSendDataListener {
+        void onSendData(String data);
+    }
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        try {
+            sendDataListener = (OnFragmentSendDataListener) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString() + " не" + "реализует интерфейс OnFragmentSendDataListener");
+        }
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_detail, container, false);
@@ -29,67 +42,26 @@ public class DetailFragment extends Fragment {
     public void setText(String text) {
         TextView view = getView().findViewById(R.id.detailsText);
         view.setText(text);
-
-        Button button = getView().findViewById(R.id.buttonExecute);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button b1 = getView().findViewById(R.id.employe1);
+        Button b2 = getView().findViewById(R.id.employe2);
+        Button b3 = getView().findViewById(R.id.employe3);
+        Button b4 = getView().findViewById(R.id.employe4);
+        Button b5 = getView().findViewById(R.id.employe5);
+        Button b6 = getView().findViewById(R.id.employe6);
+        View.OnClickListener listener = new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                EditText inputEditText = getView().findViewById(R.id.inputMessage);
-                String inputText = inputEditText.getText().toString();
-                switch (text) {
-                    case "Вывести статистику":
-                        showStat(inputText);
-                        break;
-                    case "Посчитать слова":
-                        countWord(inputText);
-                        break;
-                    case "Удалить первое слово":
-                        deleteFirstWord(inputText);
-                        break;
-                }
+            public void onClick(View view) {// получаем выбранный текст
+                String text = ((Button) view).getText().toString();// Посылаем данные Activity
+                sendDataListener.onSendData(text);
             }
-        });
+        };
+        b1.setOnClickListener(listener);
+        b2.setOnClickListener(listener);
+        b3.setOnClickListener(listener);
+        b4.setOnClickListener(listener);
+        b5.setOnClickListener(listener);
+        b6.setOnClickListener(listener);
     }
 
-    private void deleteFirstWord(String inputText) {
-        //TextView outputView = getView().findViewById(R.id.outputMessage);
-        EditText input = getView().findViewById(R.id.inputMessage);
-        String[] words = inputText.split(" ");
-        words[0] = "";
-        inputText = String.join(" ", words).trim();
-        input.setText(inputText);
-        //outputView.setText(inputText);
-    }
 
-    private void countWord(String inputText) {
-        TextView outputView = getView().findViewById(R.id.outputMessage);
-        String[] words = inputText.split(" ");
-        //можно ещё replace убрать знаки препинания
-        outputView.setText("текст содержит следующее количество слов: " + words.length);
-
-    }
-
-    private void showStat(String inputText) {
-        TextView outputView = getView().findViewById(R.id.outputMessage);
-        int sogl = 0;
-        int glas = 0;
-        int other = 0;
-        //Pattern soglPattern = Pattern.compile("(?iu)[бвгджзйклмнпрстфхцчшщ]");
-        //Pattern glasPattern = Pattern.compile("(?iu)[аяуюоеёэиы]");
-        Pattern soglPattern = Pattern.compile("(?iu)[BCDFGHJKLMNPQRSTVWXYZ]");
-        Pattern glasPattern = Pattern.compile("(?iu)[AEIOU]");
-
-        Matcher matcher = soglPattern.matcher(inputText);
-        while (matcher.find()) {
-            sogl++;
-        }
-        matcher = glasPattern.matcher(inputText);
-        while (matcher.find()) {
-            glas++;
-        }
-        other = inputText.length() - (glas + sogl);
-
-
-        outputView.setText("Согласных – " + sogl + "\nГласных – " + glas + "\nДругих – " + other);
-    }
 }

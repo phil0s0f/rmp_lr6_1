@@ -8,28 +8,43 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Выберите действие"
+        android:text="Выберите сотрудника"
         android:textSize="25sp" />
-
-    <EditText
-        android:id="@+id/inputMessage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="20"
-        android:hint="Введите текст"
-        android:inputType="textPersonName" />
 
     <Button
-        android:id="@+id/buttonExecute"
+        android:id="@+id/employe1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Выполнить" />
+        android:text="Сотрудник 1" />
 
-    <TextView
-        android:id="@+id/outputMessage"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/employe2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:textSize="25sp" />
+        android:text="Сотрудник 2" />
+
+    <Button
+        android:id="@+id/employe3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Сотрудник 3" />
+
+    <Button
+        android:id="@+id/employe4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Сотрудник 4" />
+
+    <Button
+        android:id="@+id/employe5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Сотрудник 5" />
+
+    <Button
+        android:id="@+id/employe6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Сотрудник 6" />
 
 </LinearLayout>
